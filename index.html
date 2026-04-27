@@ -14,7 +14,6 @@ body {
   overflow-x: hidden;
 }
 
-/* NAV */
 nav {
   display: flex;
   justify-content: center;
@@ -35,16 +34,17 @@ nav {
   background: rgba(10,15,30,0.6);
   color: #cbd5e1;
   cursor: pointer;
-  transition: 0.3s;
 }
 
-.nav-btn:hover {
-  color: white;
-  border-color: #38bdf8;
-  box-shadow: 0 0 10px rgba(56,189,248,0.4);
+.section {
+  padding: 120px 40px;
+  display: none;
 }
 
-/* HERO */
+#home {
+  display: block;
+}
+
 .hero {
   height: 100vh;
   display: flex;
@@ -65,22 +65,15 @@ nav {
   letter-spacing: 2px;
 }
 
-/* GLASS CARD */
-.section {
-  padding: 120px 40px;
-  display: none;
-}
-
 .card {
   background: rgba(255,255,255,0.05);
   border: 1px solid rgba(255,255,255,0.08);
   backdrop-filter: blur(10px);
   border-radius: 16px;
   padding: 25px;
-  max-width: 600px;
+  max-width: 700px;
 }
 
-/* ANIMATION */
 .fade-in {
   animation: fade 0.6s ease;
 }
@@ -89,49 +82,28 @@ nav {
   from { opacity: 0; transform: translateY(20px); }
   to { opacity: 1; transform: translateY(0); }
 }
+</style>
+</head>
 
-/* HERO */
-.hero {
-  height: 100vh;
-  display: flex;
-  align-items: center;
-  padding-left: 80px;
-}
+<body>
 
-.hero h1 {
-  font-size: 70px;
-  margin: 0;
-}
+<nav>
+  <button class="nav-btn" onclick="showSection('home')">HOME</button>
+  <button class="nav-btn" onclick="showSection('skills')">SKILLS</button>
+  <button class="nav-btn" onclick="showSection('data')">DATA SCIENCE</button>
+  <button class="nav-btn" onclick="showSection('contact')">CONTACT</button>
+</nav>
 
-.hero p {
-  color: #38bdf8;
-  letter-spacing: 2px;
-}
+<div id="home" class="section hero">
+  <div>
+    <h1>Ravi Teja Chimata</h1>
+    <p>Launch Quality | Supplier Quality | Plant Quality | Change Management</p>
+  </div>
+</div>
 
-/* HERO */
-.hero {
-  height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-}
-
-.hero h1 {
-  font-size: 50px;
-}
-
-/* SECTION */
-.section {
-  padding: 100px 20px;
-  display: none;
-}
-
-#home<div id="skills" class="section">
-
+<div id="skills" class="section">
   <div class="card fade-in">
     <h2>Top Skills</h2>
-
     <ul>
       <li>Launch Quality</li>
       <li>Supplier Quality</li>
@@ -141,14 +113,12 @@ nav {
       <li>SPC, MSA, CQI</li>
     </ul>
   </div>
-
 </div>
 
 <div id="data" class="section">
   <div class="card fade-in">
     <h2>Data Science Career</h2>
     <p>Coming Soon</p>
-
     <ul>
       <li>Python</li>
       <li>SQL</li>
@@ -159,8 +129,10 @@ nav {
 </div>
 
 <div id="contact" class="section">
-  <h2>Contact</h2>
-  <p>Email: ravitejachimata@gmail.com</p>
+  <div class="card fade-in">
+    <h2>Contact</h2>
+    <p>Email: ravitejachimata@gmail.com</p>
+  </div>
 </div>
 
 <audio autoplay loop>
@@ -176,6 +148,8 @@ function showSection(id) {
   const target = document.getElementById(id);
   if (target) {
     target.style.display = "block";
+    target.classList.remove("fade-in");
+    void target.offsetWidth;
     target.classList.add("fade-in");
   }
 }
