@@ -8,9 +8,10 @@
 <style>
 body {
   margin: 0;
-  font-family: Arial;
+  font-family: 'Segoe UI', sans-serif;
   background: radial-gradient(circle at top, #0a0f1c, #000);
   color: white;
+  overflow-x: hidden;
 }
 
 /* NAV */
@@ -20,7 +21,7 @@ nav {
   gap: 20px;
   padding: 15px;
   background: rgba(0,0,0,0.7);
-  backdrop-filter: blur(10px);
+  backdrop-filter: blur(12px);
   position: fixed;
   width: 100%;
   top: 0;
@@ -31,7 +32,7 @@ nav {
   padding: 8px 18px;
   border-radius: 12px;
   border: 1px solid rgba(255,255,255,0.1);
-  background: rgba(10,15,30,0.5);
+  background: rgba(10,15,30,0.6);
   color: #cbd5e1;
   cursor: pointer;
   transition: 0.3s;
@@ -41,6 +42,52 @@ nav {
   color: white;
   border-color: #38bdf8;
   box-shadow: 0 0 10px rgba(56,189,248,0.4);
+}
+
+/* HERO */
+.hero {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  padding-left: 80px;
+}
+
+.hero h1 {
+  font-size: 70px;
+  margin: 0;
+  background: linear-gradient(to right, #fff, #38bdf8);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.hero p {
+  color: #38bdf8;
+  letter-spacing: 2px;
+}
+
+/* GLASS CARD */
+.section {
+  padding: 120px 40px;
+  display: none;
+}
+
+.card {
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.08);
+  backdrop-filter: blur(10px);
+  border-radius: 16px;
+  padding: 25px;
+  max-width: 600px;
+}
+
+/* ANIMATION */
+.fade-in {
+  animation: fade 0.6s ease;
+}
+
+@keyframes fade {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
 /* HERO */
@@ -80,23 +127,35 @@ nav {
   display: none;
 }
 
-#home<div id="home" class="section hero">
-  <div>
-    <h1>Ravi Teja Chimata</h1>
-    <p>Launch Quality | Supplier Quality | Plant Quality | Change Management</p>
+#home<div id="skills" class="section">
+
+  <div class="card fade-in">
+    <h2>Top Skills</h2>
+
+    <ul>
+      <li>Launch Quality</li>
+      <li>Supplier Quality</li>
+      <li>Plant Quality</li>
+      <li>Change Management</li>
+      <li>APQP, PPAP, PFMEA</li>
+      <li>SPC, MSA, CQI</li>
+    </ul>
   </div>
+
 </div>
 
 <div id="data" class="section">
-  <h2>Data Science Career</h2>
-  <p>Coming Soon</p>
+  <div class="card fade-in">
+    <h2>Data Science Career</h2>
+    <p>Coming Soon</p>
 
-  <ul>
-    <li>Python</li>
-    <li>SQL</li>
-    <li>Power BI</li>
-    <li>Machine Learning</li>
-  </ul>
+    <ul>
+      <li>Python</li>
+      <li>SQL</li>
+      <li>Power BI</li>
+      <li>Machine Learning</li>
+    </ul>
+  </div>
 </div>
 
 <div id="contact" class="section">
@@ -117,6 +176,7 @@ function showSection(id) {
   const target = document.getElementById(id);
   if (target) {
     target.style.display = "block";
+    target.classList.add("fade-in");
   }
 }
 </script>
