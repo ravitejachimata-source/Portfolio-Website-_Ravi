@@ -64,7 +64,12 @@ nav {
   color: #38bdf8;
   letter-spacing: 2px;
 }
-
+<div class="metrics">
+  <div>15+ Programs Launched</div>
+  <div>100+ Issues Resolved</div>
+  <div>80% Reduction in Defects</div>
+  <div>$20K+ Cost Savings</div>
+</div>
 .card {
   background: rgba(255,255,255,0.05);
   border: 1px solid rgba(255,255,255,0.08);
@@ -94,11 +99,12 @@ nav {
   <button class="nav-btn" onclick="showSection('contact')">CONTACT</button>
 </nav>
 
-<div id="home" class="section hero">
-  <div>
-    <h1>Ravi Teja Chimata</h1>
-    <p>Launch Quality | Supplier Quality | Plant Quality | Change Management</p>
-  </div>
+<h1>Ravi Teja Chimata</h1>
+<p>Launch Quality | Supplier Quality | Plant Quality | Change Management</p>
+
+<div class="cta">
+  <button>View Experience</button>
+  <button>Download Resume</button>
 </div>
 
 <div id="skills" class="section">
@@ -117,14 +123,14 @@ nav {
 
 <div id="data" class="section">
   <div class="card fade-in">
-    <h2>Data Science Career</h2>
-    <p>Coming Soon</p>
-    <ul>
-      <li>Python</li>
-      <li>SQL</li>
-      <li>Power BI</li>
-      <li>Machine Learning</li>
-    </ul>
+    <h2>Data Science Journey</h2>
+
+<ul>
+  <li>IBM Data Science Certification (In Progress)</li>
+  <li>Python for Data Analysis</li>
+  <li>SQL for Data Engineering</li>
+  <li>Power BI Dashboarding</li>
+</ul>
   </div>
 </div>
 
@@ -132,6 +138,10 @@ nav {
   <div class="card fade-in">
     <h2>Contact</h2>
     <p>Email: ravitejachimata@gmail.com</p>
+    <p>
+  <a href="https://github.com/ravitejachimata-source">GitHub</a> |
+  <a href="https://www.linkedin.com/in/ravi-teja-c-814478b1/">LinkedIn</a>
+</p>
   </div>
 </div>
 
@@ -141,9 +151,12 @@ nav {
 
 <script>
 function showSection(id) {
-  document.querySelectorAll(".section").forEach(sec => {
-    sec.style.display = "none";
+  document.querySelectorAll("button").forEach(btn=>{
+  btn.addEventListener("click",()=>{
+    document.querySelectorAll("button").forEach(b=>b.classList.remove("active"));
+    btn.classList.add("active");
   });
+});
 
   const target = document.getElementById(id);
   if (target) {
